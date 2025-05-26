@@ -137,7 +137,7 @@ chmod +x ./wwiki.sh
 
 Пользователь базы данных: wiki
 
-Пароль пользователя базы данных: WikiP@$$w0rd
+Пароль пользователя базы данных: WikiP@ssw0rd
 
 Установите флажок "Использовать ту же учётную запись, что и для установки".
 
@@ -164,6 +164,33 @@ sed -i 's/^([[:space:]])# - (./LocalSettings.php:.)$/\1- \2/' /home/sshuser/wiki
 docker compose -f /home/sshuser/wiki.yml stop
 
 docker compose -f /home/sshuser/wiki.yml up -d
+
+-------------------------------------------------------------------------------------
+
+проверка wiki , с hq cli заходим в браузер по 192.168.3.10:8086
+
+ЕСЛИ LocalSettings.php not found То возможно
+
+в br-srv 
+
+cd /home/sshuser/
+
+nano wiki.yml       --- если нет nano ( apt-get install nano)
+
+ищем volumes:
+
+вторая строка 
+
+где есть localsettings.php 
+
+убираем # ( стираем знак) и - (тире) чтоб была под верхней тере
+
+![так]([https://github.com/jon/coolproject/raw/master/image/image.png](https://github.com/GMC1830/d3/blob/main/image/111.jpg))
+
+
+
+
+
 
 ## HQ-CLI
 
