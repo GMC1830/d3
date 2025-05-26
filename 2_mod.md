@@ -1,4 +1,4 @@
-HQ-RTR
+## HQ-RTR
 apt-get update && apt-get install -y wget
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1hq.sh
@@ -7,7 +7,7 @@ chmod +x ./1hq.sh
 
 ./1hq.sh
 
-BR-RTR
+## BR-RTR
 apt-get update && apt-get install -y wget
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1br-rtr.sh
@@ -16,7 +16,7 @@ chmod +x ./1br-rtr.sh
 
 ./1br-rtr.sh
 
-HQ-SRV
+## HQ-SRV
 
 apt-get update && apt-get install -y wget
 
@@ -26,23 +26,28 @@ chmod +x ./1hq-srv.sh
 
 ./1hq-srv.sh
 
-for Moodle >> on hq-srv
+##  hq-srv
 
 apt-get install -y apache2 php8.2 apache2-mod_php8.2 mariadb-server php8.2-opcache php8.2-curl php8.2-gd php8.2-intl php8.2-mysqli php8.2-xml php8.2-xmlrpc php8.2-ldap php8.2-zip php8.2-soap php8.2-mbstring php8.2-json php8.2-xmlreader php8.2-fileinfo php8.2-sodium php8.2-exif wget nano
 
+-------------------------------------------------------------------------------------
+
 systemctl enable --now httpd2 mysqld mariadb
+-------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1.sh
 
 chmod +x ./1.sh
 
 ./1.sh
+-------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/2.sh
 
 chmod +x ./2.sh
 
 ./2.sh
+-------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/3.sh
 
@@ -50,6 +55,7 @@ chmod +x ./3.sh
 
 ./3.sh
 
+-------------------------------------------------------------------------------------
 На hq-cli переходим по 192.168.1.10/moodle/install.php
 
 тип бд maria
@@ -60,7 +66,7 @@ chmod +x ./3.sh
 
 пароль P@ssw0rd
 
-HQ-CLI
+## HQ-CLI
 
 systemctl start --now sshd
 
@@ -70,7 +76,7 @@ epm update
 
 epm -y install yandex-browser-stable &
 
-BR-SRV
+## BR-SRV
 
 apt-get update && apt-get install -y wget
 
@@ -88,7 +94,7 @@ chmod +x ./medwiki.sh
 
 ./medwiki.sh
 
-hq-cli 192.168.3.10:8086
+## hq-cli 192.168.3.10:8086
 
 Тип базы данных: MariaDB
 
@@ -118,9 +124,9 @@ hq-cli 192.168.3.10:8086
 
 Выберите "Хватит уже, просто установите вики".
 
-scp -P 2024 /home/user/Downloads/LocalSettings.php sshuser@192.168.3.10:/home/sshuser/
+scp -P 3010 /home/user/Downloads/LocalSettings.php sshuser@192.168.3.10:/home/sshuser/
 
-BR-SRV
+## BR-SRV
 
 sed -i 's/^([[:space:]])# - (./LocalSettings.php:.)$/\1- \2/' /home/sshuser/wiki.yml
 
@@ -128,7 +134,8 @@ docker compose -f /home/sshuser/wiki.yml stop
 
 docker compose -f /home/sshuser/wiki.yml up -d
 
-HQ-CLI
+## HQ-CLI
+
 apt-get update && apt-get install -y chrony
 
 cat <<'EOF' > /etc/chrony.conf
