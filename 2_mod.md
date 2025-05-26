@@ -164,8 +164,6 @@ apt-get install nano
 
 nano /home/sshuser/wiki.yml
 
-вторая строка 
-
 где есть localsettings.php 
 
 убираем # ( стираем знак) и - (тире) чтоб была под верхней тере
