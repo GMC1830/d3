@@ -8,6 +8,7 @@ chmod +x ./1hq.sh
 ./1hq.sh
 
 ## BR-RTR
+
 apt-get update && apt-get install -y wget
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1br-rtr.sh
@@ -33,6 +34,7 @@ apt-get install -y apache2 php8.2 apache2-mod_php8.2 mariadb-server php8.2-opcac
 -------------------------------------------------------------------------------------
 
 systemctl enable --now httpd2 mysqld mariadb
+
 -------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1.sh
@@ -40,6 +42,7 @@ wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1.sh
 chmod +x ./1.sh
 
 ./1.sh
+
 -------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/2.sh
@@ -47,6 +50,7 @@ wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/2.sh
 chmod +x ./2.sh
 
 ./2.sh
+
 -------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/3.sh
@@ -56,6 +60,7 @@ chmod +x ./3.sh
 ./3.sh
 
 -------------------------------------------------------------------------------------
+
 На hq-cli переходим по 192.168.1.10/moodle/install.php
 
 тип бд maria
