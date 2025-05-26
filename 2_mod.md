@@ -91,6 +91,10 @@ chmod +x ./1br-srv.sh
 
 ./1br-srv.sh
 
+
+ansible all -m pin  , чтобы было pong
+
+
 -------------------------------------------------------------------------------------------------------
 
 wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/medwiki.sh
