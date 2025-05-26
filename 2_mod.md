@@ -185,7 +185,7 @@ nano wiki.yml       --- если нет nano ( apt-get install nano)
 
 убираем # ( стираем знак) и - (тире) чтоб была под верхней тере
 
-![так]([https://github.com/jon/coolproject/raw/master/image/image.png](https://github.com/GMC1830/d3/blob/main/image/111.jpg))
+![так](https://github.com/GMC1830/d3/blob/main/image/111.jpg)
 
 
 
