@@ -27,13 +27,6 @@ if ! systemctl is-active --quiet chronyd; then
     systemctl enable --now chronyd
 fi
 
-# Настройка iptables для перенаправления трафика, если правило еще не добавлено
-if ! iptables -t nat -L PREROUTING | grep -q "DNAT.*192.168.1.10:2024"; then
-    iptables -t nat -F PREROUTING
-    iptables -t nat -A PREROUTING -i ens19 -p tcp --dport 2024 -j DNAT --to-destination 192.168.1.10:2024
-    iptables-save > /etc/sysconfig/iptables
-    systemctl restart iptables
-fi
 
 # Настройка iptables для перенаправления трафика, если правило еще не добавлено
 if ! iptables -t nat -L PREROUTING | grep -q "DNAT.*192.168.1.10:3010"; then
