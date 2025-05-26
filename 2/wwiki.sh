@@ -24,7 +24,7 @@ services:
     environment:
       MYSQL_DATABASE: mediawiki
       MYSQL_USER: wiki
-      MYSQL_PASSWORD: WikiP@$$w0rd
+      MYSQL_PASSWORD: WikiP@ssw0rd
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
     volumes:
       - dbvolume:/var/lib/mysql
