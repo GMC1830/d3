@@ -91,8 +91,30 @@ chmod +x ./1br-srv.sh
 
 ./1br-srv.sh
 
+-------------------------------------------------------------------------------------------------------
 
-ansible all -m ping  , чтобы было pong
+
+ansible all -m ping  , чтобы было pong , если нет то 
+
+заходим на пк где проблема
+
+ip -c a , узнать ip 
+
+systemctl restart sshd
+
+systemctl status sshd
+
+и на br srv выполняем с тем ip (@ip) на который не прошло
+
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3010 sshuser@192.168.1.10
+
+ssh-copy-id -i /root/.ssh/id_rsa.pub user@192.168.2.10
+
+ssh-copy-id -i /root/.ssh/id_rsa.pub net_admin@172.16.4.4
+
+ssh-copy-id -i /root/.ssh/id_rsa.pub net_admin@172.16.5.5
+
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3010 sshuser@192.168.3.10
 
 
 -------------------------------------------------------------------------------------------------------
