@@ -42,7 +42,7 @@ mkdir -p /etc/net/ifaces/vlan100
 
 mkdir -p /etc/net/ifaces/vlan200
 
-mkdir -p /etc/net/ifaces/vlan99
+mkdir -p /etc/net/ifaces/vlan999
 
 echo -e "BOOTPROTO=static \nTYPE=eth" > /etc/net/ifaces/ens19/options
 
@@ -60,9 +60,9 @@ echo 192.168.2.1/28 > /etc/net/ifaces/vlan200/ipv4address
 
 echo -e "TYPE=vlan \nHOST=ens19 \nVID=200" > /etc/net/ifaces/vlan200/options
 
-echo 192.168.99.1/28 > /etc/net/ifaces/vlan99/ipv4address
+echo 192.168.999.1/28 > /etc/net/ifaces/vlan999/ipv4address
 
-echo -e "TYPE=vlan \nHOST=ens19 \nVID=99" > /etc/net/ifaces/vlan99/options
+echo -e "TYPE=vlan \nHOST=ens19 \nVID=999" > /etc/net/ifaces/vlan999/options
 
 sed -i 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g' /etc/net/sysctl.conf
 
