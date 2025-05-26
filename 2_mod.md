@@ -191,6 +191,11 @@ nano wiki.yml       --- если нет nano ( apt-get install nano)
 
 
 
+docker compose -f /home/sshuser/wiki.yml stop
+
+
+docker compose -f /home/sshuser/wiki.yml up -d
+
 
 ## HQ-CLI
 
