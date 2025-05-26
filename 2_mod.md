@@ -159,25 +159,10 @@ scp -P 3010 /home/user/Downloads/LocalSettings.php sshuser@192.168.3.10:/home/ss
 
 ## BR-SRV
 
-sed -i 's/^([[:space:]])# - (./LocalSettings.php:.)$/\1- \2/' /home/sshuser/wiki.yml
 
-docker compose -f /home/sshuser/wiki.yml stop
+apt-get install nano
 
-docker compose -f /home/sshuser/wiki.yml up -d
-
--------------------------------------------------------------------------------------
-
-проверка wiki , с hq cli заходим в браузер по 192.168.3.10:8086
-
-ЕСЛИ LocalSettings.php not found То возможно
-
-в br-srv 
-
-cd /home/sshuser/
-
-nano wiki.yml       --- если нет nano ( apt-get install nano)
-
-ищем volumes:
+nano /home/sshuser/wiki.yml
 
 вторая строка 
 
@@ -186,9 +171,6 @@ nano wiki.yml       --- если нет nano ( apt-get install nano)
 убираем # ( стираем знак) и - (тире) чтоб была под верхней тере
 
 ![так](https://github.com/GMC1830/d3/blob/main/image/111.jpg)
-
-
-
 
 
 docker compose -f /home/sshuser/wiki.yml stop
