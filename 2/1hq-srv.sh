@@ -35,9 +35,9 @@ fi
 
 # Создание RAID, если он еще не создан
 if ! mdadm --detail /dev/md0 &>/dev/null; then
-    read -p "RAID не создан. Создать RAID 5 на /dev/sdb, /dev/sdc и /dev/sdd? (y/n): " create_raid
+    read -p "RAID не создан. Создать RAID 0 на /dev/sdb, /dev/sdc и /dev/sdd? (y/n): " create_raid
     if [[ "$create_raid" == "y" ]]; then
-        mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd --force
+        mdadm --create /dev/md0 --level=0 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd --force
         mkdir -p /etc/mdadm
         mdadm --detail --scan --verbose >> /etc/mdadm/mdadm.conf
         cp /etc/mdadm/mdadm.conf /etc/mdadm.conf 2>/dev/null || true
@@ -56,10 +56,10 @@ EOF
         fi
 
         # Добавление в fstab, если еще не добавлено
-        if ! grep -q "/raid5" /etc/fstab; then
-            mkdir -p /raid5
+        if ! grep -q "/raid0" /etc/fstab; then
+            mkdir -p /raid0
             raid_uuid=$(blkid -s UUID -o value /dev/md0p1)
-            echo "UUID=$raid_uuid /raid5 ext4 defaults 0 2" >> /etc/fstab
+            echo "UUID=$raid_uuid /raid0 ext4 defaults 0 2" >> /etc/fstab
             mount -a
         fi
     else
@@ -73,15 +73,15 @@ if ! dpkg -l | grep -q nfs-server; then
 fi
 
 # Настройка NFS, если директория еще не создана
-if [ ! -d /raid5/nfs ]; then
-    read -p "Директория NFS не найдена. Создать /raid5/nfs? (y/n): " create_nfs_dir
+if [ ! -d /raid0/nfs ]; then
+    read -p "Директория NFS не найдена. Создать /raid0/nfs? (y/n): " create_nfs_dir
     if [[ "$create_nfs_dir" == "y" ]]; then
-        mkdir -p /raid5/nfs
-        chown 99:99 /raid5/nfs
-        chmod 777 /raid5/nfs
+        mkdir -p /raid0/nfs
+        chown 99:99 /raid0/nfs
+        chmod 777 /raid0/nfs
 
         cat <<'EOF' > /etc/exports
-/raid5/nfs 192.168.2.0/28(rw,sync,no_subtree_check)
+/raid0/nfs 192.168.2.0/28(rw,sync,no_subtree_check)
 EOF
 
         exportfs -ra
