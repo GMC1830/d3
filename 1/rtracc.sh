@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Добавление пользователя net_admin с UID 1010
-useradd net_admin -u 1010 -U
+# Добавление пользователя net_admin с UID 1015
+useradd net_admin -u 1015 -U
 
 # Установка пароля для пользователя net_admin
 echo "net_admin:P@$$word" | chpasswd
