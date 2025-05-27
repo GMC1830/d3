@@ -21,11 +21,11 @@ chmod +x ./1br-rtr.sh
 
 apt-get update && apt-get install -y wget
 
-wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1hq-srv.sh
+wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/11hq-srv.sh
 
-chmod +x ./1hq-srv.sh
+chmod +x ./11hq-srv.sh
 
-./1hq-srv.sh
+./11hq-srv.sh
 
 ##  hq-srv
 
