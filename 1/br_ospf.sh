@@ -12,7 +12,7 @@ systemctl restart frr
     echo "conf t"
     echo "router ospf"
     echo "network 10.10.0.0/30 area 0"
-    echo "network 192.168.3.0/27 area 0"
+    echo "network 192.168.3.0/28 area 0"
     echo "exit"
     echo "int gre1"
     echo "ip ospf authentication message-digest"
