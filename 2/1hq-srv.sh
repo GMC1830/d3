@@ -35,9 +35,9 @@ fi
 
 # Создание RAID, если он еще не создан
 if ! mdadm --detail /dev/md0 &>/dev/null; then
-    read -p "RAID не создан. Создать RAID 1 на /dev/sdb, /dev/sdc и /dev/sdd? (y/n): " create_raid
+    read -p "RAID не создан. Создать RAID 5 на /dev/sdb, /dev/sdc и /dev/sdd? (y/n): " create_raid
     if [[ "$create_raid" == "y" ]]; then
-        mdadm --create /dev/md0 --level=1 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd --force
+        mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb /dev/sdc /dev/sdd --force
         mkdir -p /etc/mdadm
         mdadm --detail --scan --verbose >> /etc/mdadm/mdadm.conf
         cp /etc/mdadm/mdadm.conf /etc/mdadm.conf 2>/dev/null || true
