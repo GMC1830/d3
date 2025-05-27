@@ -56,10 +56,10 @@ EOF
         fi
 
         # Добавление в fstab, если еще не добавлено
-        if ! grep -q "/raid1" /etc/fstab; then
-            mkdir -p /raid1
+        if ! grep -q "/raid5" /etc/fstab; then
+            mkdir -p /raid5
             raid_uuid=$(blkid -s UUID -o value /dev/md0p1)
-            echo "UUID=$raid_uuid /raid1 ext4 defaults 0 2" >> /etc/fstab
+            echo "UUID=$raid_uuid /raid5 ext4 defaults 0 2" >> /etc/fstab
             mount -a
         fi
     else
@@ -73,15 +73,15 @@ if ! dpkg -l | grep -q nfs-server; then
 fi
 
 # Настройка NFS, если директория еще не создана
-if [ ! -d /raid1/nfs ]; then
-    read -p "Директория NFS не найдена. Создать /raid1/nfs? (y/n): " create_nfs_dir
+if [ ! -d /raid5/nfs ]; then
+    read -p "Директория NFS не найдена. Создать /raid5/nfs? (y/n): " create_nfs_dir
     if [[ "$create_nfs_dir" == "y" ]]; then
-        mkdir -p /raid1/nfs
-        chown 99:99 /raid1/nfs
-        chmod 777 /raid1/nfs
+        mkdir -p /raid5/nfs
+        chown 99:99 /raid5/nfs
+        chmod 777 /raid5/nfs
 
         cat <<'EOF' > /etc/exports
-/raid1/nfs 192.168.2.0/28(rw,sync,no_subtree_check)
+/raid5/nfs 192.168.2.0/28(rw,sync,no_subtree_check)
 EOF
 
         exportfs -ra
