@@ -241,7 +241,7 @@ hostnamectl set-hostname br-srv.au-team.irpo; exec bash
 
 echo -e "BOOTPROTO=static \nTYPE=eth" > /etc/net/ifaces/ens18/options 
 
-echo 192.168.3.10/27> /etc/net/ifaces/ens18/ipv4address 
+echo 192.168.3.10/28> /etc/net/ifaces/ens18/ipv4address 
 
 echo default via 192.168.3.1> /etc/net/ifaces/ens18/ipv4route
 
