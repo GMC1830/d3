@@ -6,7 +6,7 @@
 mkdir -p /etc/net/ifaces/ens19
 mkdir -p /etc/net/ifaces/gre1
 
-echo "192.168.3.1/27" > /etc/net/ifaces/ens19/ipv4address
+echo "192.168.3.1/28" > /etc/net/ifaces/ens19/ipv4address
 
 echo "TYPE=eth" > /etc/net/ifaces/ens19/options
 
