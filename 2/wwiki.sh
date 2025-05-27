@@ -9,7 +9,7 @@ services:
     image: mediawiki
     restart: always
     ports:
-      - "8086:80"
+      - "8080:80"
     links:
       - mariadb:mariadb
     volumes:
