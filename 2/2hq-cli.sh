@@ -366,7 +366,7 @@ EOF
 mkdir /mnt/nfs
 
 cat <<EOF >> /etc/fstab
-192.168.1.10:/raid1/nfs /mnt/nfs nfs intr,soft,_netdev,x-systemd.automount 0 0
+192.168.1.10:/raid5/nfs /mnt/nfs nfs intr,soft,_netdev,x-systemd.automount 0 0
 EOF
 
 systemctl daemon-reload
