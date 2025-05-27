@@ -93,9 +93,9 @@ fi
 
 # Изменение порта SSH, 
 
-sudo sed -i '/^#*Port / s/[0-9]\+/3010/' /etc/openssh/sshd_config
+sudo sed -i '/^#*Port / s/[0-9]\+/3015/' /etc/openssh/sshd_config
 
-echo "Port 3010" | sudo tee -a /etc/openssh/sshd_config
+echo "Port 3015" | sudo tee -a /etc/openssh/sshd_config
 
 systemctl restart sshd
 
