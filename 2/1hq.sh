@@ -29,9 +29,9 @@ fi
 
 
 # Настройка iptables для перенаправления трафика, если правило еще не добавлено
-if ! iptables -t nat -L PREROUTING | grep -q "DNAT.*192.168.1.10:3010"; then
+if ! iptables -t nat -L PREROUTING | grep -q "DNAT.*192.168.1.10:3015"; then
     iptables -t nat -F PREROUTING
-    iptables -t nat -A PREROUTING -i ens19 -p tcp --dport 3010 -j DNAT --to-destination 192.168.1.10:3010
+    iptables -t nat -A PREROUTING -i ens19 -p tcp --dport 3015 -j DNAT --to-destination 192.168.1.10:3015
     iptables-save > /etc/sysconfig/iptables
     systemctl restart iptables
 fi
