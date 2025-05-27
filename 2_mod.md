@@ -106,7 +106,7 @@ systemctl status sshd
 
 и на br srv выполняем с тем ip (@ip) на который не прошло
 
-ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3010 sshuser@192.168.1.10
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3015 sshuser@192.168.1.10
 
 ssh-copy-id -i /root/.ssh/id_rsa.pub user@192.168.2.10
 
@@ -114,7 +114,7 @@ ssh-copy-id -i /root/.ssh/id_rsa.pub net_admin@172.16.4.4
 
 ssh-copy-id -i /root/.ssh/id_rsa.pub net_admin@172.16.5.5
 
-ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3010 sshuser@192.168.3.10
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3015 sshuser@192.168.3.10
 
 
 -------------------------------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ chmod +x ./wwiki.sh
 
 Выберите "Хватит уже, просто установите вики".
 
-scp -P 3010 /home/user/Downloads/LocalSettings.php sshuser@192.168.3.10:/home/sshuser/
+scp -P 3015 /home/user/Downloads/LocalSettings.php sshuser@192.168.3.10:/home/sshuser/
 
 ## BR-SRV
 
