@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Добавление пользователя sshuser с UID 1010 и созданием группы
-useradd sshuser -u 1010 -U
+# Добавление пользователя sshuser с UID 1015 и созданием группы
+useradd sshuser -u 1015 -U
 
 # Установка пароля для пользователя sshuser
 echo "sshuser:P@ssw0rd" | chpasswd
