@@ -24,9 +24,9 @@ fi
 
 
 # Сброс правил PREROUTING в iptables, если это еще не сделано
-if ! iptables -t nat -L PREROUTING | grep -q "DNAT.*192.168.3.10:8086"; then
+if ! iptables -t nat -L PREROUTING | grep -q "DNAT.*192.168.3.10:8080"; then
     iptables -t nat -F PREROUTING  # Очищаем правила PREROUTING
-    iptables -t nat -A PREROUTING -i ens19 -p tcp --dport 80 -j DNAT --to-destination 192.168.3.10:8086
+    iptables -t nat -A PREROUTING -i ens19 -p tcp --dport 80 -j DNAT --to-destination 192.168.3.10:8080
     iptables -t nat -A PREROUTING -i ens19 -p tcp --dport 3010 -j DNAT --to-destination 192.168.3.10:3010
     iptables-save > /etc/sysconfig/iptables
     systemctl restart iptables
