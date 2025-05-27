@@ -6,7 +6,7 @@ apt-get install -y openssh-common
 
 # Настройка конфигурационного файла sshd_config
 {
-    echo "Port 3010"
+    echo "Port 3015"
     echo "MaxAuthTries 2"
     echo "AllowUsers sshuser"
     echo "PermitRootLogin no"
