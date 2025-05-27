@@ -82,9 +82,9 @@ chmod +x /root/samba_user_add.sh
 
 # Изменение порта SSH, 
 
-sudo sed -i '/^#*Port / s/[0-9]\+/3010/' /etc/openssh/sshd_config
+sudo sed -i '/^#*Port / s/[0-9]\+/3015/' /etc/openssh/sshd_config
 
-echo "Port 3010" | sudo tee -a /etc/openssh/sshd_config
+echo "Port 3015" | sudo tee -a /etc/openssh/sshd_config
 
 systemctl restart sshd
 
@@ -93,23 +93,23 @@ apt-get update && apt-get install -y ansible
 
 # Генерация SSH ключей и копирование их на удаленные серверы
 ssh-keygen -t rsa -f /root/.ssh/id_rsa -N "" || echo "Ключ уже существует."
-ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3010 sshuser@192.168.1.10
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3015 sshuser@192.168.1.10
 ssh-copy-id -i /root/.ssh/id_rsa.pub user@192.168.2.10
 ssh-copy-id -i /root/.ssh/id_rsa.pub net_admin@172.16.4.4
 ssh-copy-id -i /root/.ssh/id_rsa.pub net_admin@172.16.5.5
-ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3010 sshuser@192.168.3.10
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3015 sshuser@192.168.3.10
 
 # Настройка Ansible инвентаря и конфигурации
 mkdir -p /etc/ansible
 cat << 'EOF' > /etc/ansible/hosts
 [hq]
-192.168.1.10 ansible_user=sshuser ansible_port=3010
+192.168.1.10 ansible_user=sshuser ansible_port=3015
 192.168.2.10 ansible_user=user
 172.16.4.4 ansible_user=net_admin
 
 [br]
 172.16.5.5 ansible_user=net_admin
-192.168.3.10 ansible_user=sshuser ansible_port=3010
+192.168.3.10 ansible_user=sshuser ansible_port=3015
 EOF
 
 cat << 'EOF' > /etc/ansible/ansible.cfg
