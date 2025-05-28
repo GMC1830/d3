@@ -1,11 +1,11 @@
 ## HQ-RTR
 apt-get update && apt-get install -y wget
 
-wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1hq.sh
+wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/111hq.sh
 
-chmod +x ./1hq.sh
+chmod +x ./111hq.sh
 
-./1hq.sh
+./111hq.sh
 
 ## BR-RTR
 
