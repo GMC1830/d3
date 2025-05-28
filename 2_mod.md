@@ -119,11 +119,11 @@ ssh-copy-id -i /root/.ssh/id_rsa.pub -p 3015 sshuser@192.168.3.10
 
 -------------------------------------------------------------------------------------------------------
 
-wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/wwiki.sh
+wget https://raw.githubusercontent.com/GMC1830/d3/refs/heads/main/2/1wwiki.sh
 
-chmod +x ./wwiki.sh
+chmod +x ./1wwiki.sh
 
-./wwiki.sh
+./1wwiki.sh
 
 ## hq-cli 192.168.3.10:8086
 
